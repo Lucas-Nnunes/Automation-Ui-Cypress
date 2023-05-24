@@ -1,4 +1,14 @@
 {
   "email": "teste.testinha@gmail.com",
-  "senha": "123456Jesus" 
+  "senha": "123456Jesus" ,
+  "nome": "Lucas",
+  "sobrenome": "Oliveira",
+  "país": "Brasil",
+  "endereço":"Parque Una",
+  "cidade": "Pelotas",
+  "estado": "Rio grande do Sul",
+  "cep": "96075-160",
+  "telefone": "53 991621739"
+  
+
 }
