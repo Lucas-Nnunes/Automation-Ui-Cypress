@@ -1,38 +1,41 @@
 
-Cypress.Commands.add('login', (email, senha)=>{
-   const fd = new FormData()
-    fd.append("username,", email)
-    fd.append("password", senha)
-    fd.append("woocommerce-login-nonce", '616ff6b1a0')
-    fd.append("_wp_http_referer", '/minha-conta/')
-    fd.append('login', 'Login')
+Cypress.Commands.add('login', (usuario, senha) => {
+    const fd = new FormData()
+    fd.append('log', usuario)
+    fd.append('pwd', senha)
+    fd.append('wp-submit', 'Acessar')
+    fd.append('redirect_to', `/wp-admin`)
+    fd.append('testcookie', 1)
 
     cy.request({
-        url: 'minha-conta/',
-        method: 'POST',
-        body: "fd"
-    }).then(resp =>{
-        resp.headers['Set-Cookie'].forEach(Cookie => {
-            const FirstPart = Cookie.split('=')[0]
-            const dividindo = FirstPart.indexOf('=')
-            const key = FirstPart.substring(0, dividindo)
-            const value = FirstPart.substring(dividindo+1)
-            cy.setCookie(key, value)
-        });
+        url: `/wp-login.php`,
+        method: "POST",
+        body: fd
+    }).then((resp) => {
+        resp.headers['set-cookie'].forEach(cookie => {
+            const firstPart = cookie.split(';')[0]
+            const separator = firstPart.indexOf('=')
+            const name = firstPart.substring(0, separator)
+            const value = firstPart.substring(separator + 1)
+            cy.setCookie(name, value)
+        })
     })
-    cy.visit('/minha-conta')
+    
+
 
 
     Cypress.Commands.add('produto', (produto, tamanho, cor, quantidade)=>{
-        cy.visit('/product-abominable-hoodie/', produto)
+        cy.visit(`/product/-abominable-hoodie`, produto)
         cy.get('.button-variable-item-M', tamanho).click()
         cy.get('.button-variable-item-Green', cor).click()
         cy.get('.input-text', quantidade).clear().type(2)
         cy.get('.single_add_to_cart_button').click()
+        cy.get('.woocommerce-message > .button').click()
+        cy.get('.checkout-button').click()
     })
 
 
-    Cypress.Commands.add('chekout',(nome, sobrenome, país, endereço, cidade, estado, cep, telefone, email)=>{
+    Cypress.Commands.add('checkout',(nome, sobrenome, país, endereço, cidade, estado, cep, telefone, email)=>{
         const fd = new FormData()
         fd.append('billing_first_name', nome)
         fd.append('billing_last_name', sobrenome)

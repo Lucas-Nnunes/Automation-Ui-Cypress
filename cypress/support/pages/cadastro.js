@@ -5,7 +5,7 @@ class CadastroPag {
     get campoEmail(){return cy.get ('#username')}
     get campoSenha(){return cy.get ('#password')}
     get bottomLogin() {return cy.get('#customer_login > div:nth-child(1) > form > input.button')}
-    get bottomComprar() {return cy.get('#primary-menu > li.menu-item-629.aligned-fullwidth > a')}
+   
 
     Cadastro(user, pass){
         this.user.type(user)
@@ -17,7 +17,7 @@ Login(email,senha){
     this.campoEmail.type(email)
     this.campoSenha.type(senha)
     this.bottomLogin.click()
-    this.bottomComprar.click()
+    
 }
 }
 
