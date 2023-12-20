@@ -1,4 +1,9 @@
 {
+
+  "scripts": {
+    "test": "npx cypress run"
+  },
+
   "dependencies": {
     "@faker-js/faker": "^8.0.1",
     "cypress": "^12.12.0",

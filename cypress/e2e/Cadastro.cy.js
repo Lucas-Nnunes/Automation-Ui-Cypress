@@ -1,6 +1,6 @@
-const CadastroPag = require('../../support/pages/cadastro')
-const dados = require('../../fixtures/dados.json')
-const { dashboardPage, dashBoardErro } = require('../../support/pages/Dashboard')
+const CadastroPag = require('../support/pages/cadastro')
+const dados = require('../fixtures/dados.json')
+const { dashboardPage, dashBoardErro } = require('../support/pages/Dashboard')
 
 
 describe('Cadastrando um novo usuário e fazendo login', () => {
