@@ -1,5 +1,5 @@
-const dados = require('../../../fixtures/dados.json')
-const { checkoutCupom } = require('../../../support/pages/Dashboard')
+const dados = require('../fixtures/dados.json')
+const { checkoutCupom } = require('../support/pages/Dashboard')
 
 describe('Fazendo o fluxo de chekout', () => {
 
