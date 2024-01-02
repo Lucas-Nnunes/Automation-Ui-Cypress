@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 
 "scripts": {
@@ -13,3 +14,17 @@
     "mochawesome-report-generator": "^6.2.0"
   }
 }
+=======
+{
+
+  "scripts": {
+    "test": "npx cypress run"
+  },
+
+  "dependencies": {
+    "@faker-js/faker": "^8.0.1",
+    "cypress": "^12.12.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  }
+}
+>>>>>>> a1bd11e4629d7f3346dce4373350acaaed90ea7c
