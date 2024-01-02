@@ -1,0 +1,15 @@
+FROM node:latest
+
+WORKDIR /home/cypress/  
+
+COPY package*.json ./ 
+
+COPY . /home/cypress/ 
+
+RUN npm install 
+
+VOLUME ["home/cypress/mochawesome" ]
+
+EXPOSE 3030
+
+CMD ["npm", "run", "test"]
